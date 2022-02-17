@@ -1,0 +1,13 @@
+#!/bin/ash
+set -e
+
+readonly PID_FILE="/run/syslogd.pid"
+
+[[ -e "$PID_FILE" ]] && rm -v "$PID_FILE"
+
+# -n: stay in foreground
+# -O: log to file (- is stdout)
+exec /sbin/syslogd -n -O -
+
+# vim: set ft=bash ts=2 sts=2 expandtab:
+
