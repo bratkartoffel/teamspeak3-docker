@@ -18,6 +18,10 @@ export APP_HOME APP_CONF_FILE APP_ADDITIONAL_PARAMS
 
 # invoked as root, add user and prepare container
 if [ "$(id -u)" -eq 0 ]; then
+  echo ">> removing default user and group ($APP_USER)"
+  if getent passwd "$APP_USER" >/dev/null; then deluser "$APP_USER"; fi
+  if getent group "$APP_GROUP" >/dev/null; then delgroup "$APP_GROUP"; fi
+
   echo ">> adding unprivileged user (uid: $APP_UID / gid: $APP_GID)"
   addgroup -g "$APP_GID" "$APP_GROUP"
   adduser -HD -h "$APP_HOME" -s /sbin/nologin -G "$APP_GROUP" -u "$APP_UID" -k /dev/null "$APP_USER"
