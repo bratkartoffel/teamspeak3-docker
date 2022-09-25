@@ -6,8 +6,8 @@ RUN apk upgrade --no-cache \
         libstdc++ \
         s6 setpriv
 
-ENV TEAMSPEAK_VERSION=3.13.6 \
-	TEAMSPEAK_CHECKSUM=f30a5366f12b0c5b00476652ebc06d9b5bc4754c4cb386c086758cceb620a8d0
+ENV TEAMSPEAK_VERSION=3.13.7 \
+	TEAMSPEAK_CHECKSUM=359aac972679cfd98d62af51ddaf80e674cab166e13c6a835e81759097f9ba2e
 
 # install teamspeak3
 RUN apk add --no-cache --virtual .fetch-deps ca-certificates tar \
