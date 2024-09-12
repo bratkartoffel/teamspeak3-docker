@@ -35,7 +35,8 @@ if [ "$(id -u)" -eq 0 ]; then
 
   echo ">> create link for syslog redirection"
   install -dm 0750 -o "$APP_USER" -g "$APP_GROUP" /run/syslogd
-  ln -s /run/syslogd/syslogd.sock /dev/log
+  [[ -h /dev/log ]] && rm -v /dev/log
+  ln -sfv /run/syslogd/syslogd.sock /dev/log
 
   # drop privileges and re-execute this script unprivileged
   echo ">> dropping privileges"
