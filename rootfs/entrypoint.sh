@@ -49,7 +49,7 @@ echo ">> changing umask to $APP_UMASK"
 umask "$APP_UMASK"
 
 echo ">> starting application"
-exec /bin/s6-svscan /etc/s6
+exec /usr/bin/s6-svscan /etc/s6
 
 # vim: set ft=bash ts=2 sts=2 expandtab:
 
