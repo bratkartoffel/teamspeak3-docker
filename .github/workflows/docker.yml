@@ -29,6 +29,7 @@ jobs:
             api.github.com:443
             auth.docker.io:443
             dl-cdn.alpinelinux.org:443
+            docker-images-prod.*.cloudflarestorage.com:443
             files.teamspeak-services.com:443
             github.com:443
             index.docker.io:443
